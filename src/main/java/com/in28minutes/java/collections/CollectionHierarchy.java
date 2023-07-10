@@ -104,10 +104,12 @@ class ArrayList /* implements List<E>, RandomAccess */{
 	// implements RandomAccess, a marker interface, meaning it support fast -
 	// almost constant time - access
 	// Insertion and Deletion are slower compared to LinkedList
+	//ArrayList is not thread-safe
 }
 
 class Vector /* implements List<E>, RandomAccess */{
 	// Thread Safe - Synchronized Methods
+	//Vector is basically an array ist with all the methods synchronised, which makes it thread safe.
 	// implements RandomAccess, a marker interface, meaning it support fast -
 	// almost constant time - access
 }
@@ -115,7 +117,7 @@ class Vector /* implements List<E>, RandomAccess */{
 class LinkedList /* implements List<E>, Queue */{
 	// Elements are doubly linked - forward and backword - to one another
 	// Ideal choice to implement Stack or Queue
-	// Iteration is slower than ArrayList
+	// Iteration is slower than ArrayList i.e. accessing element is slower
 	// Fast Insertion and Deletion
 	// Implements Queue interface also. So, supports methods like peek(), poll()
 	// and remove()
@@ -172,16 +174,16 @@ class HashSet /* implements Set */{
 // Order of Insertion :A, X, B
 // Order of Storing : A, X, B
 class LinkedHashSet /* implements Set */{
-	// ordered - iterates in order of insertion
+	// ordered - iterates in order of insertion i.e. maintains order of insertion
 	// unsorted
 	// uses hashCode()
 }
 
 // Order of Insertion :A,C,B
-// Order of Storing : A,B,C
+// Order of Storing : A,B,C 
 class TreeSet /* implements Set,NavigableSet */{
 	// 3,5,7
-	// sorted - natural order
+	// sorted - natural order i.e. elements are stored in sorted order
 	// implements NavigableSet
 }
 
@@ -213,7 +215,7 @@ interface Queue<E> extends Collection<E> {
 	E peek();
 }
 
-//A linear collection that supports element insertion and removal at both ends
+//Double ended queue: A linear collection that supports element insertion and removal at both ends
 interface Deque<E> extends Queue<E> {
 	void addFirst(E e);
 
@@ -360,6 +362,7 @@ interface Map<K, V> {
 
 // A Map that orders based on the keys. Comparator can be provided at
 // map creation time
+//sorted map stores element in the order of their keys
 interface SortedMap<K, V> extends Map<K, V> {
 	Comparator<? super K> comparator();
 
